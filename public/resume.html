@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <title>Resume</title>
+        <script src="https://kit.fontawesome.com/2d4d72695a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css" />
+        <link rel="stylesheet" href="/css/styles.css" />
+    </head>
+
+    <body class="container">
+        <main>
+            <section>
+                <div class="is-spaced-between">
+                    <a href="/" class="h2"><kbd>Benjamin Nguyen</kbd></a>
+                    <span style="text-align: right;">
+                        <i class="fa-solid fa-envelope fa-sm"></i> hello@benjinguyen.com
+                        <br>
+                        <a href="https://github.com/benjamonnguyen" target="_blank" class="contrast">
+                            <i class="fa-brands fa-github"></i>
+                            <span class="hide-mobile">github.com/benjamonnguyen</span></a> |
+                        <a href="https://www.linkedin.com/in/benjamin-nguyen-004/" target="_blank" class="contrast">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <span class="hide-mobile">linkedin.com/in/benjamin-nguyen-004</span></a>
+                    </span>
+                </div>
+                <hr>
+            </section>
+
+            <section>
+                <h4>Experience</h4>
+                <div>
+                    <div class="is-spaced-between"><b>Senior Software Engineer - Interfaces Engine Team</b>
+                        <span style="text-align: right;">Jun 2023 - Present</span>
+                    </div>
+                    <div>UCLA Health | Virtual Location</div>
+                    <ul>
+                        <li>Created and maintained services to transform and reliably deliver <b>14 million+ HL7
+                                messages/day</b> to vendors.</li>
+                        <li>Led team in identifying DevOps pain points and implementing solutions (e.g. package
+                            repository, logs manager, secrets manager).</li>
+                        <li>Built data compare service as part of our containerization effort to <b>automate the
+                                verification of the converted data output for 200+ services</b>.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="is-spaced-between"><b>Software Engineer II - Device Manager Team</b>
+                        <span style="text-align: right;">Oct 2022 - Jun 2023</span>
+                    </div>
+                    <div class="is-spaced-between"><b>Software Engineer I</b>
+                        <span style="text-align: right;">Oct 2021 - Oct 2022</span>
+                    </div>
+                    <div>CalAmp | Carlsbad, CA</div>
+                    <ul>
+                        <li>Responsible for the event-driven, microservice backend system that manages device state and
+                            assigns files/configurations for <b>10 million+ devices</b>.</li>
+                        <li>Built Java and Go services to persist and synchronize incoming device state across other
+                            teams’ caches.
+                            <ul>
+                                <li>Responsibilities: communicate change events, inform notification service, and stream
+                                    data to the data analytics team.</li>
+                                <li>Design: pull-based, asynchronous message routing using Kafka offloaded bulk of
+                                    routing logic to consumers and <b>increased system throughput from 4k to 30k
+                                        messages/min</b>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="is-spaced-between"><b>Implementation Consultant - Data Analytics Team</b>
+                        <span style="text-align: right;">Oct 2019 - May 2021</span>
+                    </div>
+                    <div>FAST Enterprises, LLC | Springfield, IL</div>
+                    <ul>
+                        <li>Team's Sales Tax Audit Selection program generated an <b>additional $2.5 million
+                                year-over-year ($2,825/audit hour)</b>.</li>
+                        <li>Developed Current Residence Prediction program to automate the resending of undeliverable
+                            notices of tax due, <b>clearing a backlog of 13,600+</b>.</li>
+                    </ul>
+                </div>
+                <hr>
+            </section>
+
+            <section>
+                <h4>Projects</h4>
+                <ul>
+                    <li><b>Opendoor.chat</b> | Client Comms Platform
+                        <ul>
+                            <li><i class="fa-brands fa-github fa-sm"></i>
+                                <a href="https://github.com/benjamonnguyen/opendoor-chat-backend"
+                                    target="_blank">Backend code</a> |
+                                <a href="https://github.com/benjamonnguyen/opendoor-chat-frontend"
+                                    target="_blank">Frontend code</a>
+                            </li>
+                            <li>
+                                Developing chat web app that seamlessly replaces email correspondence for a better
+                                communication experience between vendors and their clients using <b>Go and HTMX</b>
+                                (WIP).
+                            </li>
+                        </ul>
+                    </li>
+                    <li><b>Pomomo</b> | Discord Productivity Bot
+                        <ul>
+                            <li><i class="fa-brands fa-github fa-sm"></i>
+                                <a href="https://github.com/benjamonnguyen/pomomo-rewrite" target="_blank">Source
+                                    code</a> |
+                                <i class="fa-solid fa-globe fa-sm"></i> <a href="https://pomomo.us"
+                                    target="_blank">Website</a>
+                            </li>
+                            <li>
+                                Developed a bot that facilitates group study sessions in <b>25k+ servers</b> on Discord
+                                (VoIP/messaging platform) using <b>Python, Typescript, and Vue.js</b>.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr>
+            </section>
+
+            <section>
+                <h4>Education</h4>
+                <div class="is-spaced-between">
+                    <span><b>UC Irvine</b> | Data Analytics and Programming Bootcamp</span>
+                    <span style="text-align: right;">Feb 2019 - Aug 2019</span>
+                </div>
+                <div class="is-spaced-between">
+                    <span><b>UC San Diego</b> | Bachelor of Science in Ecology, Behavior and Evolution</span>
+                    <span style="text-align: right;">Sept 2014 - Dec 2018</span>
+                </div>
+            </section>
+
+            <section>
+                <h4>Technology</h4>
+                <p>Java 11/17, Spring Boot, Kafka, Kubernetes, Docker, ActiveMQ, AWS (S3, EC2, CloudWatch, API Gateway,
+                    Lambda), PostgreSQL, noSQL (MongoDB, DocumentDB), Redis, Python, Go, JavaScript, Node.js, HTML, CSS,
+                    React, Liquibase, git, Azure, Quarkus, JUnit/Mockito, Apache Camel, Postman, Hibernate, OOP, Pub/Sub
+                    Message Queues
+                </p>
+            </section>
+        </main>
+        <footer style="text-align: center;">
+            <small>This website is proudly served from my closet!<br>© 2024 Benjamin Nguyen</small>
+        </footer>
+    </body>
+
+    <style>
+        body {
+            font-family: 'Consolas', sans-serif;
+        }
+
+        section {
+            margin-bottom: calc(var(--pico-block-spacing-vertical)*0.5);
+        }
+
+        .hide-mobile {
+            display: none;
+        }
+
+        @media screen and (min-width: 800px) {
+            .hide-mobile {
+                display: inline;
+            }
+        }
+    </style>
+
+</html>

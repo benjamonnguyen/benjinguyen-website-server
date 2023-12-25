@@ -1,0 +1,30 @@
+.is-fixed-top {
+    z-index: 2;
+    position: sticky;
+    top: 0;
+}
+
+.is-fixed-bottom {
+    z-index: 2;
+    position: sticky;
+    bottom: 0;
+}
+
+.h1 {
+    font-size: 2em
+}
+
+.h2 {
+    font-size: 1.6em
+}
+
+.is-spaced-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.is-circle {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-position: center;
+}

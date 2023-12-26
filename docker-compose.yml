@@ -1,0 +1,7 @@
+version: '2.23.3'
+
+services:
+  benjinguyen-website-server:
+    image: benjinguyen-website-server:latest
+    ports:
+    - "3000:3000"

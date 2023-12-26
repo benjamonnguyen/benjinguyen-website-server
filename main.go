@@ -14,7 +14,7 @@ import (
 
 func main() {
 	//
-	addr := flag.String("addr", ":3001", "http server address")
+	addr := flag.String("addr", ":3000", "http server address")
 	flag.Parse()
 
 	//

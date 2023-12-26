@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="{ theme: '' }" :data-theme="theme"
+    x-init="theme=(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'">
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
@@ -8,26 +9,43 @@
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css" />
         <link rel="stylesheet" href="/css/styles.css" />
-        <link rel="preload" as="image" href="/assets/jumping-portrait.jpg">
-        <link rel="preload" as="image" href="/assets/snow-portrait.jpeg">
-        <link rel="preload" as="image" href="/assets/coffee-portrait.jpg">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-toggles@4.10.1/css/expand.min.css">
     </head>
 
     <body class="container">
         <header class="is-fixed-top">
             <nav style="align-items: flex-end;">
                 <ul>
-                    <li><kbd class="h2">Benjamin Nguyen</kbd></li>
+                    <li onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="interactive">
+                        <kbd class="h2">Benjamin Nguyen</kbd>
+                    </li>
                 </ul>
                 <ul>
                     <li><a href="/resume" class="contrast"><b>Resume</b></a></li>
                     <li>
-                        <a href="https://github.com/benjamonnguyen" target="_blank"
+                        <a href="https://github.com/benjamonnguyen" target="_blank" style="text-decoration: none;"
                             class="fa-brands fa-github fa-lg contrast"></a>
                     </li>
                     <li>
                         <a href="https://www.linkedin.com/in/benjamin-nguyen-004/" target="_blank"
-                            class="fa-brands fa-linkedin fa-lg contrast"></a>
+                            style="text-decoration: none;" class="fa-brands fa-linkedin fa-lg contrast"></a>
+                    </li>
+                    <li>
+                        <label class="theme-toggle" style="margin-bottom: 3px;">
+                            <input type="checkbox" @click="theme=(theme==='dark')?'light':'dark';" />
+                            <span class="theme-toggle-sr">Toggle theme</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" height="24"
+                                fill="currentColor" class="theme-toggle__expand" viewBox="0 0 32 32">
+                                <clipPath id="theme-toggle__expand__cutout">
+                                    <path d="M0-11h25a1 1 0 0017 13v30H0Z" />
+                                </clipPath>
+                                <g clip-path="url(#theme-toggle__expand__cutout)">
+                                    <circle cx="16" cy="16" r="8.4" />
+                                    <path
+                                        d="M18.3 3.2c0 1.3-1 2.3-2.3 2.3s-2.3-1-2.3-2.3S14.7.9 16 .9s2.3 1 2.3 2.3zm-4.6 25.6c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3zm15.1-10.5c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zm5.8-7C9 7.9 7.9 9 6.7 9S4.4 8 4.4 6.7s1-2.3 2.3-2.3S9 5.4 9 6.7zm16.3 21c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zm2.4-21c0 1.3-1 2.3-2.3 2.3S23 7.9 23 6.7s1-2.3 2.3-2.3 2.4 1 2.4 2.3zM6.7 23C8 23 9 24 9 25.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z" />
+                                </g>
+                            </svg>
+                        </label>
                     </li>
                 </ul>
             </nav>
@@ -40,9 +58,9 @@
                 <img x-data="{ curr: '/assets/iceland-portrait.jpeg', portraits: ['iceland-portrait.jpeg', 'jumping-portrait.jpg', 'coffee-portrait.jpeg', 'snow-portrait.jpeg'], i: 0 }"
                     @click="const [portrait, j] = next(portraits, i); const [noun] = next(nouns, i); const [verb] = next(verbs, i);
                     curr = '/assets/' + portrait; currNoun = noun; currVerb = verb; i = j; nounIdx = j; verbIdx = j;"
-                    :src="curr" x-transition src="/assets/iceland-portrait.jpeg" width="350"
+                    :src="curr" x-transition src="/assets/iceland-portrait.jpeg" width="500"
                     style="margin-right: 2em; border-radius: 5%;" class="interactive" />
-                <blockquote>
+                <blockquote style="font-size: x-large; font-weight: 600;">
                     I am a
                     <mark @click="const [noun, i] = next(nouns, nounIdx); currNoun = noun; nounIdx = i;"
                         x-text="currNoun" x-transition class="interactive">
@@ -50,14 +68,15 @@
                     with a passion for
                     <mark @click="const [verb, i] = next(verbs, verbIdx); currVerb = verb; verbIdx = i;" x-transition
                         x-text="currVerb" class="interactive">creating</mark>.<br><br>
-                    Currently obsessed with <mark>Go and the simplicity of its ecosystem and toolchain</mark>.
+                    Currently obsessed with Go and the simplicity of its ecosystem and toolchain.
                 </blockquote>
             </section>
+            <hr>
 
-            <section>
+            <section style="padding-top: 3em;">
                 <h4>I am working on...</h4>
                 <article>
-                    <img src="/assets/opendoor-logo.jpeg" style="width: 30%; height: auto; padding: 1em 0;" />
+                    <img src="/assets/opendoor-logo.jpeg" class="project-logo" />
                     <p>
                         <b>Opendoor.chat is a Client Management and Chat Web App</b> that seamlessly integrates
                         vendor/client emails into a chatroom experience.
@@ -67,7 +86,7 @@
                         out.
                     </p>
                     <div>
-                        <i class="fa-brands fa-github fa-sm"></i>
+                        <i class="fa-brands fa-github fa-md"></i>
                         <a href="https://github.com/benjamonnguyen/opendoor-chat-backend" target="_blank"
                             class="contrast" style="margin-bottom: 2px;">Backend code</a> |
                         <a href="https://github.com/benjamonnguyen/opendoor-chat-frontend" target="_blank"
@@ -80,8 +99,10 @@
             <section>
                 <h4>Past Projects</h4>
                 <article>
-                    <div><a href="https://pomomo.us" target="_blank"><img src="/assets/pomomo-logo.png"
-                                style="width: 30%; height: auto; padding-bottom: 1em;" /></a></div>
+                    <div>
+                        <a href="https://pomomo.us" target="_blank"><img src="/assets/pomomo-logo.png"
+                                class="project-logo" /></a>
+                    </div>
                     <p>
                         <b>Pomomo is a Discord bot inspired by a need to balance productivity and socializing.</b>
                         It uses the proven Pomodoro technique which alternates periods of work and relaxation to
@@ -99,7 +120,7 @@
                     </div>
                     <div>
                         <a href="https://github.com/benjamonnguyen/pomomo-rewrite" target="_blank" class="contrast"><i
-                                class="fa-brands fa-github fa-sm"></i>
+                                class="fa-brands fa-github fa-md"></i>
                             <span class="hide-mobile">Source code</span></a> |
                         <a href="https://pomomo.us" target="_blank" class="contrast"><i
                                 class="fa-solid fa-globe fa-sm"></i> <span class="hide-mobile">Website</span></a> |
@@ -119,7 +140,7 @@
                     </video>
                     <div>
                         <a href="https://github.com/benjamonnguyen/obsidian-todotxt-codeblocks" target="_blank"
-                            class="contrast"><i class="fa-brands fa-github fa-sm"></i>
+                            class="contrast"><i class="fa-brands fa-github fa-md"></i>
                             <span class="hide-mobile">Source code</span></a>
                     </div>
                 </article>
@@ -127,7 +148,10 @@
         </main>
 
         <footer style="text-align: center;">
-            <small>This website is proudly served from my closet!<br>© 2024 Benjamin Nguyen</small>
+            <small>
+                Assets created by Benny Nguyen.<br>This website is proudly served from my closet!<br>
+                © 2024 Benjamin Nguyen
+            </small>
         </footer>
 
         <style>
@@ -160,16 +184,20 @@
 
             @media screen and (min-width: 768px) {
                 video {
-                    width: 80%;
+                    width: 75%;
                 }
             }
 
             @media screen and (min-width: 1025px) {
                 video {
-                    width: 60%;
+                    width: 50%;
                 }
             }
         </style>
+
+        <link rel="preload" as="image" href="/assets/jumping-portrait.jpg">
+        <link rel="preload" as="image" href="/assets/snow-portrait.jpeg">
+        <link rel="preload" as="image" href="/assets/coffee-portrait.jpeg">
 
         <script>
             function next(arr, i) {

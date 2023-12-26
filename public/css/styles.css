@@ -68,6 +68,10 @@ pre {
     justify-content: space-between;
 }
 
+.fa-md {
+    font-size: 1em;
+}
+
 .is-circle {
     aspect-ratio: 1/1;
     border-radius: 50%;
@@ -82,9 +86,31 @@ pre {
     flex-wrap: wrap;
 }
 
-@media screen and (min-width: 800px) {
+img.project-logo {
+    width: 70%;
+    height: auto;
+    padding: 1em 0;
+}
+
+@media screen and (min-width: 576px) {
+    img.project-logo {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 768px) {
     .hide-mobile {
         display: inline;
+    }
+
+    img.project-logo {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    img.project-logo {
+        width: 40%;
     }
 
     .wrap-mobile {

@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="/css/styles.css" />
         <link rel="preload" as="image" href="/assets/jumping-portrait.jpg">
         <link rel="preload" as="image" href="/assets/snow-portrait.jpeg">
-        <link rel="preload" as="image" href="/assets/liro-portrait.jpg">
+        <link rel="preload" as="image" href="/assets/coffee-portrait.jpg">
     </head>
 
     <body class="container">
@@ -34,26 +34,96 @@
         </header>
 
         <main>
-            <section style="display: flex; align-items: center;" x-data="{ currNoun: 'Software Engineer', currVerb: 'creating', nounIdx: 0, verbIdx: 0,
-                nouns: ['Software Engineer', 'Nature Lover', 'Husband', 'Coffee Enthusiast'],
-                verbs: ['creating', 'exploring', 'learning', 'problem solving'] }">
-                <img x-data="{ curr: '/assets/iceland-portrait.jpeg', portraits: ['iceland-portrait.jpeg', 'jumping-portrait.jpg', 'snow-portrait.jpeg', 'liro-portrait.jpg'], i: 0 }"
+            <section style="display: flex; align-items: center;" class="wrap-mobile" x-data="{ currNoun: 'Software Engineer', currVerb: 'creating', nounIdx: 0, verbIdx: 0,
+                nouns: ['Software Engineer', 'Nature Lover', 'Coffee Enthusiast', 'Husband'],
+                verbs: ['creating', 'exploring', 'problem solving', 'learning'] }">
+                <img x-data="{ curr: '/assets/iceland-portrait.jpeg', portraits: ['iceland-portrait.jpeg', 'jumping-portrait.jpg', 'coffee-portrait.jpeg', 'snow-portrait.jpeg'], i: 0 }"
                     @click="const [portrait, j] = next(portraits, i); const [noun] = next(nouns, i); const [verb] = next(verbs, i);
-                    curr = '/assets/' + portrait; currNoun = noun; currVerb = verb; i = j;" :src="curr" x-transition
-                    src="/assets/iceland-portrait.jpeg" width="350" style="margin-right: 2em; border-radius: 5%;" />
+                    curr = '/assets/' + portrait; currNoun = noun; currVerb = verb; i = j; nounIdx = j; verbIdx = j;"
+                    :src="curr" x-transition src="/assets/iceland-portrait.jpeg" width="350"
+                    style="margin-right: 2em; border-radius: 5%;" class="interactive" />
                 <blockquote>
                     I am a
                     <mark @click="const [noun, i] = next(nouns, nounIdx); currNoun = noun; nounIdx = i;"
-                        x-text="currNoun" x-transition>
+                        x-text="currNoun" x-transition class="interactive">
                         Software Engineer</mark>
                     with a passion for
                     <mark @click="const [verb, i] = next(verbs, verbIdx); currVerb = verb; verbIdx = i;" x-transition
-                        x-text="currVerb">creating</mark>.<br><br>
-                    Currently obsessed with Go and the simplicity of its ecosystem and toolchain.
+                        x-text="currVerb" class="interactive">creating</mark>.<br><br>
+                    Currently obsessed with <mark>Go and the simplicity of its ecosystem and toolchain</mark>.
                 </blockquote>
             </section>
 
-            <!-- <section>TODO projects section</section> -->
+            <section>
+                <h4>I am working on...</h4>
+                <article>
+                    <img src="/assets/opendoor-logo.jpeg" style="width: 30%; height: auto; padding: 1em 0;" />
+                    <p>
+                        <b>Opendoor.chat is a Client Management and Chat Web App</b> that seamlessly integrates
+                        vendor/client emails into a chatroom experience.
+                        <br><br>
+                        Chatrooms can provide a better, more organized communication experience over email threads.
+                        Email correspondence is preserved for recordkeeping and in cases where a client prefers to opt
+                        out.
+                    </p>
+                    <div>
+                        <i class="fa-brands fa-github fa-sm"></i>
+                        <a href="https://github.com/benjamonnguyen/opendoor-chat-backend" target="_blank"
+                            class="contrast" style="margin-bottom: 2px;">Backend code</a> |
+                        <a href="https://github.com/benjamonnguyen/opendoor-chat-frontend" target="_blank"
+                            class="contrast">Frontend code</a>
+                    </div>
+                </article>
+
+            </section>
+
+            <section>
+                <h4>Past Projects</h4>
+                <article>
+                    <div><a href="https://pomomo.us" target="_blank"><img src="/assets/pomomo-logo.png"
+                                style="width: 30%; height: auto; padding-bottom: 1em;" /></a></div>
+                    <p>
+                        <b>Pomomo is a Discord bot inspired by a need to balance productivity and socializing.</b>
+                        It uses the proven Pomodoro technique which alternates periods of work and relaxation to
+                        maximize productivity while minimizing burnout.
+                        <br><br>
+                        Designate time to focus so you and your friends can get stuff done while hanging out! The
+                        intervals are customizable to whatever works best for you.
+                        <br><br>
+                        Pomomo is now in over <b>25k servers</b> and has been <b>internationalized into French, Dutch,
+                            Spanish, English, and Italian</b>, thanks to the contributions from our community of
+                        'Pomomies'!
+                    </p>
+                    <div style="padding-bottom: 1em;">
+                        <img src="/assets/pomomo-demo.png" />
+                    </div>
+                    <div>
+                        <a href="https://github.com/benjamonnguyen/pomomo-rewrite" target="_blank" class="contrast"><i
+                                class="fa-brands fa-github fa-sm"></i>
+                            <span class="hide-mobile">Source code</span></a> |
+                        <a href="https://pomomo.us" target="_blank" class="contrast"><i
+                                class="fa-solid fa-globe fa-sm"></i> <span class="hide-mobile">Website</span></a> |
+                        <a href="https://discord.gg/Aghy78wcFr" target="_blank" class="contrast"><i
+                                class="fa-brands fa-discord fa-sm"></i> <span class="hide-mobile">Community</span></a>
+                    </div>
+                </article>
+                <article>
+                    <h4>Todo.txt Codeblocks</h4>
+                    <p>
+                        An Obsidian plugin to render todo lists based on the <a
+                            href="https://github.com/todotxt/todo.txt" target="_blank">Todo.txt spec</a>.
+                    </p>
+                    <video style="padding-bottom: 1em;" controls>
+                        <source src="/assets/todotxt-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div>
+                        <a href="https://github.com/benjamonnguyen/obsidian-todotxt-codeblocks" target="_blank"
+                            class="contrast"><i class="fa-brands fa-github fa-sm"></i>
+                            <span class="hide-mobile">Source code</span></a>
+                    </div>
+                </article>
+            </section>
         </main>
 
         <footer style="text-align: center;">
@@ -64,16 +134,40 @@
             body>header {
                 padding: 0.5em 0;
                 border-bottom: var(--pico-border-width) solid var(--pico-header-border-color);
-                backdrop-filter: blur(2rem);
+                background-color: var(--pico-background-color);
             }
 
-            .fa-brands {
+            .fa-brands,
+            a {
                 text-decoration: none;
             }
 
-            mark:hover,
-            img:hover {
+            .interactive {
                 cursor: pointer;
+            }
+
+            article {
+                padding: 1em;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            video {
+                width: 100%;
+            }
+
+            @media screen and (min-width: 768px) {
+                video {
+                    width: 80%;
+                }
+            }
+
+            @media screen and (min-width: 1025px) {
+                video {
+                    width: 60%;
+                }
             }
         </style>
 

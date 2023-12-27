@@ -8,6 +8,7 @@
         <script src="https://kit.fontawesome.com/2d4d72695a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css" />
         <link rel="stylesheet" href="/css/styles.css" />
+        <link rel="stylesheet" media="print" href="/css/print.css" />
     </head>
 
     <body class="container">
@@ -17,16 +18,22 @@
                     <mark class="logotype">
                         <a href="/" class="contrast" style="text-decoration: none;">Benjamin Nguyen</a>
                     </mark>
-                    <span style="text-align: right;">
-                        <i class="fa-solid fa-envelope fa-sm"></i> hello@benjinguyen.com
+                    <span style="text-align: right; float: left;">
+                        <span><i class="fa-solid fa-envelope fa-sm"></i> hello@benjinguyen.com</span>
+                        <span class="hide-mobile"> | </span>
+                        <span style="white-space: nowrap;"><i class="fa-solid fa-globe fa-sm"></i>
+                            benjinguyen.com</span>
                         <br>
-                        <a href="https://github.com/benjamonnguyen" target="_blank" class="contrast">
-                            <i class="fa-brands fa-github"></i>
-                            <span class="hide-mobile">github.com/benjamonnguyen</span></a> |
-                        <a href="https://www.linkedin.com/in/benjamin-nguyen-004/" target="_blank" class="contrast">
-                            <i class="fa-brands fa-linkedin"></i>
-                            <span class="hide-mobile">linkedin.com/in/benjamin-nguyen-004</span></a>
-                    </span>
+                        <span><a href="https://github.com/benjamonnguyen" target="_blank" style="text-decoration: none;"
+                                class="fa-brands fa-github contrast">&nbsp;</a><span class="hide-mobile"><a
+                                    href="https://github.com/benjamonnguyen" target="_blank"
+                                    class="contrast">github.com/benjamonnguyen</a>&nbsp;</span><span>|&nbsp;</span><span
+                                style="white-space: nowrap;"><a href="https://www.linkedin.com/in/benjamin-nguyen-004/"
+                                    target="_blank" style="text-decoration: none;"
+                                    class="fa-brands fa-linkedin contrast">&nbsp;</a><a
+                                    href="https://www.linkedin.com/in/benjamin-nguyen-004/" target="_blank"
+                                    class="hide-mobile contrast">linkedin.com/in/benjamin-nguyen-004</a></span>
+                        </span>
                 </div>
                 <hr>
             </section>
@@ -56,14 +63,15 @@
                     </div>
                     <div>CalAmp | Carlsbad, CA</div>
                     <ul>
-                        <li>Responsible for the event-driven, microservice backend system that manages device state and
+                        <li>Responsible for the event-driven, microservice backend system that manages state and
                             assigns files/configurations for <b>10 million+ devices</b>.</li>
-                        <li>Built Java and Go services to persist and synchronize incoming device state across other
-                            teams’ caches.
-                            <ul>
+                        <li>Built <b>Java and Go services</b> to persist and synchronize incoming device state across
+                            other teams’ caches.
+                            <ul style="padding-inline-start: 1em;">
                                 <li>Responsibilities: communicate change events, inform notification service, and stream
                                     data to the data analytics team.</li>
-                                <li>Design: pull-based, asynchronous message routing using Kafka offloaded bulk of
+                                <li>Design: pull-based, asynchronous message routing using <b>Kafka</b> offloaded bulk
+                                    of
                                     routing logic to consumers and <b>increased system throughput from 4k to 30k
                                         messages/min</b>.</li>
                             </ul>
@@ -76,7 +84,7 @@
                     </div>
                     <div>FAST Enterprises, LLC | Springfield, IL</div>
                     <ul>
-                        <li>Team's Sales Tax Audit Selection program generated an <b>additional $2.5 million
+                        <li>Team's Sales Tax Audit Selection program generated <b>$2.5 million
                                 year-over-year ($2,825/audit hour)</b>.</li>
                         <li>Developed Current Residence Prediction program to automate the resending of undeliverable
                             notices of tax due, <b>clearing a backlog of 13,600+</b>.</li>
@@ -87,14 +95,16 @@
 
             <section>
                 <h4>Projects</h4>
-                <ul>
-                    <li><b>Opendoor.chat</b> | Client Comms Platform
-                        <ul>
+                <ul class="no-bullets">
+                    <li><b>Opendoor.chat</b> | Client Management and Communications Platform
+                        <ul style="padding-inline-start: 1.5em;">
                             <li><i class="fa-brands fa-github fa-sm"></i>
-                                <a href="https://github.com/benjamonnguyen/opendoor-chat-backend"
-                                    target="_blank">Backend code</a> |
-                                <a href="https://github.com/benjamonnguyen/opendoor-chat-frontend"
-                                    target="_blank">Frontend code</a>
+                                <a href="https://github.com/benjamonnguyen/opendoor-chat-backend" class="screen"
+                                    target="_blank">Backend code</a>
+                                <span class="screen">|</span>
+                                <a href="https://github.com/benjamonnguyen/opendoor-chat-frontend" target="_blank"
+                                    class="screen">Frontend code</a>
+                                <span class="print">github.com/benjamonnguyen/opendoor-chat-backend</span>
                             </li>
                             <li>
                                 Developing chat web app that seamlessly replaces email correspondence for a better
@@ -104,12 +114,13 @@
                         </ul>
                     </li>
                     <li><b>Pomomo</b> | Discord Productivity Bot
-                        <ul>
+                        <ul style="padding-inline-start: 1.5em;">
                             <li><i class="fa-brands fa-github fa-sm"></i>
-                                <a href="https://github.com/benjamonnguyen/pomomo-rewrite" target="_blank">Source
-                                    code</a> |
-                                <i class="fa-solid fa-globe fa-sm"></i> <a href="https://pomomo.us"
-                                    target="_blank">Website</a>
+                                <a href="https://github.com/benjamonnguyen/pomomo-rewrite" target="_blank"
+                                    class="screen">Source
+                                    code</a><span class="print">github.com/benjamonnguyen/pomomo-rewrite</span> |
+                                <i class="fa-solid fa-globe fa-sm"></i> <a href="https://pomomo.us" target="_blank"
+                                    class="screen">Website</a><span class="print">https://pomomo.us</span>
                             </li>
                             <li>
                                 Developed a bot that facilitates group study sessions in <b>25k+ servers</b> on Discord
@@ -123,23 +134,25 @@
 
             <section>
                 <h4>Education</h4>
-                <div class="is-spaced-between">
-                    <span><b>UC Irvine</b> | Data Analytics and Programming Bootcamp</span>
-                    <span style="text-align: right;">Feb 2019 - Aug 2019</span>
-                </div>
-                <div class="is-spaced-between">
-                    <span><b>UC San Diego</b> | Bachelor of Science in Ecology, Behavior and Evolution</span>
-                    <span style="text-align: right;">Sept 2014 - Dec 2018</span>
-                </div>
+                <ul class="no-bullets">
+                    <li class="is-spaced-between"><span><b>UC Irvine</b> | Data Analytics and Programming
+                            Bootcamp</span>
+                        <span style="text-align: right;">Feb 2019 - Aug 2019</span>
+                    </li>
+                    <li class="is-spaced-between"><span><b>UC San Diego</b> | B.S. in Ecology and Behavioral
+                            Evolution</span><span style="text-align: right;">Sept 2014 - Dec 2018</span>
+                    </li>
+                </ul>
             </section>
 
             <section>
                 <h4>Technology</h4>
-                <p>Java 11/17, Spring Boot, Kafka, Kubernetes, Docker, ActiveMQ, AWS (S3, EC2, CloudWatch, API Gateway,
+                <small>Java 11/17, Spring Boot, Kafka, Kubernetes, Docker,
+                    ActiveMQ, AWS (S3, EC2, CloudWatch, API Gateway,
                     Lambda), PostgreSQL, noSQL (MongoDB, DocumentDB), Redis, Python, Go, JavaScript, Node.js, HTML, CSS,
                     React, Liquibase, git, Azure, Quarkus, JUnit/Mockito, Apache Camel, Postman, Hibernate, OOP, Pub/Sub
                     Message Queues
-                </p>
+                </small>
             </section>
         </main>
         <footer style="text-align: center;">

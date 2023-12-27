@@ -55,6 +55,15 @@ pre {
     bottom: 0;
 }
 
+ul li {
+    list-style-type: inherit;
+}
+
+.no-bullets {
+    list-style-type: none;
+    padding-inline-start: 1em;
+}
+
 .h1 {
     font-size: 2em
 }
@@ -64,9 +73,10 @@ pre {
 }
 
 .logotype {
-    font-size: 1.6em;
-    font-weight: bolder;
+    font-size: 1.2em;
+    font-weight: bold;
     padding: 0.25em;
+    white-space: nowrap;
 }
 
 .is-spaced-between {
@@ -104,13 +114,17 @@ img.project-logo {
     padding: 1em 0;
 }
 
-@media screen and (min-width: 576px) {
+@media all and (min-width: 576px) {
     img.project-logo {
         width: 60%;
     }
+
+    .logotype {
+        font-size: 1.6em;
+    }
 }
 
-@media screen and (min-width: 768px) {
+@media all and (min-width: 768px) {
     .hide-mobile {
         display: inline;
     }
@@ -120,12 +134,29 @@ img.project-logo {
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media all and (min-width: 1024px) {
     img.project-logo {
         width: 40%;
     }
 
     .wrap-mobile {
         flex-wrap: nowrap;
+    }
+}
+
+.screen,
+.print {
+    display: none;
+}
+
+@media screen {
+    .screen {
+        display: inline;
+    }
+}
+
+@media print {
+    .print {
+        display: inline;
     }
 }

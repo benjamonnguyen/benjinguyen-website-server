@@ -29,14 +29,13 @@ func main() {
 	router.GET("/resume", func(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 		http.ServeFile(w, r, "public/resume.html")
 	})
-	// css
+	// assets
 	router.GET(
-		"/css/styles.css",
+		"/css/:sheet",
 		func(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-			http.ServeFile(w, r, "public/css/styles.css")
+			http.ServeFile(w, r, "public/css/"+p.ByName("sheet"))
 		},
 	)
-	// assets
 	router.GET(
 		"/assets/:asset",
 		func(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
@@ -44,7 +43,7 @@ func main() {
 		},
 	)
 
-	//
+	// serve
 	srv := http.Server{Addr: *addr, Handler: router}
 	defer func() {
 		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)

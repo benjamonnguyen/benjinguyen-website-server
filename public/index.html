@@ -14,10 +14,10 @@
 
     <body class="container">
         <header class="is-fixed-top">
-            <nav style="align-items: flex-end;">
+            <nav>
                 <ul>
                     <li onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="interactive">
-                        <kbd class="h2">Benjamin Nguyen</kbd>
+                        <mark class="logotype">Benjamin Nguyen</mark>
                     </li>
                 </ul>
                 <ul>
@@ -31,7 +31,7 @@
                             style="text-decoration: none;" class="fa-brands fa-linkedin fa-lg contrast"></a>
                     </li>
                     <li>
-                        <label class="theme-toggle" style="margin-bottom: 3px;">
+                        <label class="theme-toggle">
                             <input type="checkbox" @click="theme=(theme==='dark')?'light':'dark';" />
                             <span class="theme-toggle-sr">Toggle theme</span>
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" height="24"
@@ -52,22 +52,17 @@
         </header>
 
         <main>
-            <section style="display: flex; align-items: center;" class="wrap-mobile" x-data="{ currNoun: 'Software Engineer', currVerb: 'creating', nounIdx: 0, verbIdx: 0,
-                nouns: ['Software Engineer', 'Nature Lover', 'Coffee Enthusiast', 'Husband'],
-                verbs: ['creating', 'exploring', 'problem solving', 'learning'] }">
-                <img x-data="{ curr: '/assets/iceland-portrait.jpeg', portraits: ['iceland-portrait.jpeg', 'jumping-portrait.jpg', 'coffee-portrait.jpeg', 'snow-portrait.jpeg'], i: 0 }"
-                    @click="const [portrait, j] = next(portraits, i); const [noun] = next(nouns, i); const [verb] = next(verbs, i);
-                    curr = '/assets/' + portrait; currNoun = noun; currVerb = verb; i = j; nounIdx = j; verbIdx = j;"
-                    :src="curr" x-transition src="/assets/iceland-portrait.jpeg" width="500"
-                    style="margin-right: 2em; border-radius: 5%;" class="interactive" />
+            <section x-data="rotator" :alpine:init="autoRotate" style="display: flex; align-items: center;"
+                class="wrap-mobile">
+                <div @click="clicked=true; nextPortrait();" style="margin-right: 2em;" class="is-column-center">
+                    <img :src="currPortrait" width="500" style="border-radius: 5%;" class="interactive" />
+                </div>
                 <blockquote style="font-size: x-large; font-weight: 600;">
                     I am a
-                    <mark @click="const [noun, i] = next(nouns, nounIdx); currNoun = noun; nounIdx = i;"
-                        x-text="currNoun" x-transition class="interactive">
-                        Software Engineer</mark>
-                    with a passion for
-                    <mark @click="const [verb, i] = next(verbs, verbIdx); currVerb = verb; verbIdx = i;" x-transition
-                        x-text="currVerb" class="interactive">creating</mark>.<br><br>
+                    <mark @click="clicked=true; nextNoun();" x-text="currNoun" class="interactive">
+                        Software Engineer</mark> with a passion for
+                    <mark @click="clicked=true; nextVerb();" x-text="currVerb"
+                        class="interactive">creating</mark>.<br><br>
                     Currently obsessed with Go and the simplicity of its ecosystem and toolchain.
                 </blockquote>
             </section>
@@ -82,7 +77,8 @@
                         vendor/client emails into a chatroom experience.
                         <br><br>
                         Chatrooms can provide a better, more organized communication experience over email threads.
-                        Email correspondence is preserved for recordkeeping and in cases where a client prefers to opt
+                        Email correspondence is preserved for recordkeeping and in cases where a client prefers to
+                        opt
                         out.
                     </p>
                     <div>
@@ -111,7 +107,8 @@
                         Designate time to focus so you and your friends can get stuff done while hanging out! The
                         intervals are customizable to whatever works best for you.
                         <br><br>
-                        Pomomo is now in over <b>25k servers</b> and has been <b>internationalized into French, Dutch,
+                        Pomomo is now in over <b>25k servers</b> and has been <b>internationalized into French,
+                            Dutch,
                             Spanish, English, and Italian</b>, thanks to the contributions from our community of
                         'Pomomies'!
                     </p>
@@ -182,6 +179,15 @@
                 width: 100%;
             }
 
+            .theme-toggle {
+                margin-bottom: 3px;
+                color: var(--pico-contrast);
+            }
+
+            .theme-toggle:hover {
+                color: var(--pico-contrast-hover);
+            }
+
             @media screen and (min-width: 768px) {
                 video {
                     width: 75%;
@@ -195,19 +201,64 @@
             }
         </style>
 
+        <script>
+            function next(arr, i) {
+                const nextIdx = (i + 1) % arr.length;
+                return [arr[nextIdx], nextIdx];
+            }
+
+            document.addEventListener('alpine:init', () => {
+                const rotator = Alpine.data('rotator', () => ({
+                    clicked: false,
+                    //
+                    portraits: ['iceland-portrait.jpeg', 'jumping-portrait.jpg', 'coffee-portrait.jpeg', 'snow-portrait.jpeg'],
+                    portraitIdx: 0,
+                    currPortrait: '/assets/iceland-portrait.jpeg',
+                    nextPortrait() {
+                        const [portrait, i] = next(this.portraits, this.portraitIdx);
+                        this.currPortrait = `/assets/${portrait}`;
+                        this.portraitIdx = i;
+                    },
+                    //
+                    nouns: ['Software Engineer', 'Nature Lover', 'Coffee Enthusiast', 'Husband'],
+                    nounIdx: 0,
+                    currNoun: 'Software Engineer',
+                    nextNoun() {
+                        const [noun, i] = next(this.nouns, this.nounIdx);
+                        this.currNoun = noun;
+                        this.nounIdx = i;
+                    },
+                    //
+                    verbs: ['creating', 'exploring', 'problem solving', 'learning'],
+                    verbIdx: 0,
+                    currVerb: 'creating',
+                    nextVerb() {
+                        const [verb, i] = next(this.verbs, this.verbIdx);
+                        this.currVerb = verb;
+                        this.verbIdx = i;
+                    },
+                    async autoRotate() {
+                        await new Promise(r => setTimeout(r, 6000));
+                        if (this.clicked) return;
+
+                        this.nextPortrait();
+                        this.nextNoun();
+                        this.nextVerb();
+
+                        this.autoRotate();
+                    },
+                }));
+            });
+
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+        </script>
         <link rel="preload" as="image" href="/assets/jumping-portrait.jpg">
         <link rel="preload" as="image" href="/assets/snow-portrait.jpeg">
         <link rel="preload" as="image" href="/assets/coffee-portrait.jpeg">
-
-        <script>
-            function next(arr, i) {
-                i++;
-                if (i >= arr.length) {
-                    i = 0;
-                }
-                return [arr[i], i];
-            }
-        </script>
     </body>
 
 </html>

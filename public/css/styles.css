@@ -63,9 +63,21 @@ pre {
     font-size: 1.6em
 }
 
+.logotype {
+    font-size: 1.6em;
+    font-weight: bolder;
+    padding: 0.25em;
+}
+
 .is-spaced-between {
     display: flex;
     justify-content: space-between;
+}
+
+.is-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .fa-md {

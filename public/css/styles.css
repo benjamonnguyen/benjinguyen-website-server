@@ -36,10 +36,10 @@ ul li {
 }
 
 .logotype {
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 0.25em;
-    white-space: nowrap;
+    width: 15em;
+    height: 3em;
+    object-fit: cover;
+    margin-left: -0.8em;
 }
 
 .is-spaced-between {
@@ -80,10 +80,6 @@ img.project-logo {
 @media all and (min-width: 576px) {
     img.project-logo {
         width: 60%;
-    }
-
-    .logotype {
-        font-size: 1.6em;
     }
 }
 

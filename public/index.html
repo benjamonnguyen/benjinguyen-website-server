@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ theme: '' }" :data-theme="theme"
+<html lang="en" x-data="{ theme: 'light' }" :data-theme="theme"
     x-init="theme=(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'">
 
     <head>
@@ -19,7 +19,8 @@
             <nav>
                 <ul>
                     <li onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="interactive">
-                        <mark class="logotype">Benjamin Nguyen</mark>
+                        <img :src="(theme==='dark')?'/assets/logotype-dark.svg':'/assets/logotype-light.svg'"
+                            class="logotype" />
                     </li>
                 </ul>
                 <ul>

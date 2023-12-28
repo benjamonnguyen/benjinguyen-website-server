@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="{ theme: 'light' }" :data-theme="theme"
+    x-init="theme=(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'">
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
@@ -16,10 +17,11 @@
         @scroll.document="if (window.innerHeight + window.pageYOffset + 500 >= document.body.offsetHeight) reachedBottom = true">
         <main>
             <section>
-                <div class="is-spaced-between">
-                    <mark class="logotype">
-                        <a href="/" class="contrast" style="text-decoration: none;">Benjamin Nguyen</a>
-                    </mark>
+                <div class="is-spaced-between" style="align-items: center;">
+                    <span class="contrast print" id="name-header" style="text-decoration: none;">Benjamin Nguyen</span>
+                    <a href="/" class="screen">
+                        <img :src="(theme==='dark') ? '/assets/logotype-dark.svg' : '/assets/logotype-light.svg'"
+                            class="logotype" /></a>
                     <span style="text-align: right; float: left;">
                         <span><i class="fa-solid fa-envelope fa-sm"></i> hello@benjinguyen.com</span>
                         <span class="hide-mobile"> | </span>

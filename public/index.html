@@ -60,13 +60,14 @@
                 <div @click="clicked=true; nextPortrait();" style="margin-right: 2em;" class="is-column-center">
                     <img :src="currPortrait" width="500" style="border-radius: 5%;" class="interactive" />
                 </div>
-                <blockquote style="font-size: x-large; font-weight: 600;">
+                <blockquote id="blurb">
                     I am a
                     <mark @click="clicked=true; nextNoun();" x-text="currNoun" class="interactive">
                         Software Engineer</mark> with a passion for
                     <mark @click="clicked=true; nextVerb();" x-text="currVerb"
                         class="interactive">creating</mark>.<br><br>
-                    Currently obsessed with Go and the simplicity of its ecosystem and toolchain.
+                    <span style="font-size: 90%;">Favorite tech stack: <b>Go, HTMX, and Alpine.js</b> for its simple
+                        ecosystem and toolchain.</span>
                 </blockquote>
             </section>
             <hr>
@@ -81,8 +82,7 @@
                         <br><br>
                         Chatrooms can provide a better, more organized communication experience over email threads.
                         Email correspondence is preserved for recordkeeping and in cases where a client prefers to
-                        opt
-                        out.
+                        opt out.
                     </p>
                     <div>
                         <i class="fa-brands fa-github fa-md"></i>
@@ -137,8 +137,7 @@
                     </video>
                     <div>
                         <a href="https://github.com/benjamonnguyen/obsidian-todotxt-codeblocks" target="_blank"
-                            class="contrast"><i class="fa-brands fa-github fa-md"></i>
-                            <span class="hide-mobile">Source code</span></a>
+                            class="contrast"><i class="fa-brands fa-github fa-md"></i> Source code</a>
                     </div>
                 </article>
             </section>
@@ -188,6 +187,22 @@
                 color: var(--pico-contrast-hover);
             }
 
+            #blurb {
+                font-size: large;
+                font-weight: 600;
+                max-width: 500px;
+            }
+
+            @media all and (min-width: 576px) {
+                img.project-logo {
+                    width: 60%;
+                }
+
+                #blurb {
+                    font-size: x-large;
+                }
+            }
+
             @media screen and (min-width: 768px) {
                 video {
                     width: 75%;
@@ -197,6 +212,10 @@
             @media screen and (min-width: 1025px) {
                 video {
                     width: 50%;
+                }
+
+                #blurb {
+                    max-width: 700px;
                 }
             }
         </style>

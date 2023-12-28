@@ -18,10 +18,6 @@ ul li {
     white-space: nowrap;
 }
 
-.indent-divs>div {
-    padding-left: 1em;
-}
-
 .no-bullets {
     list-style-type: none;
     padding-inline-start: 1em;

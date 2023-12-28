@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css" />
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link rel="stylesheet" href="/css/styles.css" />
-        <link rel="stylesheet" href="/css/resume.css" />
     </head>
 
     <body class="container" x-data="{ reachedBottom: false }"
@@ -113,8 +112,8 @@
                             </li>
                             <li>
                                 Developing chat web app that seamlessly replaces email correspondence for a better
-                                communication experience between vendors and their clients using <b>Go and HTMX</b>
-                                (WIP).
+                                communication experience between vendors and their clients using
+                                <b>Go, HTMX, and Alpine.js</b> (WIP).
                             </li>
                         </ul>
                     </div>
@@ -166,13 +165,64 @@
             <button x-show="reachedBottom" id="printBtn" class="screen" onclick="window.print()">Print</button>
         </main>
         <footer style="text-align: center;">
-            <small>This website is proudly served from my closet!<br>© 2024 Benjamin Nguyen</small>
+            <small>
+                Assets created by Benny Nguyen.<br>This website is proudly served from my closet!<br>
+                © 2024 Benjamin Nguyen
+            </small>
         </footer>
     </body>
 
     <style>
         section {
             margin-bottom: calc(var(--pico-block-spacing-vertical)*0.5);
+        }
+
+        @media print,
+        screen and (max-width: 578px) {
+            :root {
+                --pico-line-height: 1.4;
+                --pico-font-size: 85%;
+                --pico-spacing: 0.8rem;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                margin-bottom: 0;
+            }
+        }
+
+        @media print {
+            a {
+                text-decoration: none;
+            }
+
+            footer,
+            hr {
+                display: none;
+            }
+        }
+
+        @media (min-width: 578px) {
+            .indent-divs>div {
+                padding-left: 1em;
+            }
+        }
+
+        #printBtn {
+            z-index: 2;
+            position: sticky;
+            bottom: 2em;
+            float: right;
+            padding: 0.5em 2em;
+            font-weight: bold;
+        }
+
+        #name-header {
+            font-size: 1.6em;
+            font-weight: bold;
+            white-space: nowrap;
         }
     </style>
 

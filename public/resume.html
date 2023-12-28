@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
@@ -7,11 +7,13 @@
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
         <script src="https://kit.fontawesome.com/2d4d72695a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css" />
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link rel="stylesheet" href="/css/styles.css" />
-        <link rel="stylesheet" media="print" href="/css/print.css" />
+        <link rel="stylesheet" href="/css/resume.css" />
     </head>
 
-    <body class="container">
+    <body class="container" x-data="{ reachedBottom: false }"
+        @scroll.document="if (window.innerHeight + window.pageYOffset + 500 >= document.body.offsetHeight) reachedBottom = true">
         <main>
             <section>
                 <div class="is-spaced-between">
@@ -21,14 +23,14 @@
                     <span style="text-align: right; float: left;">
                         <span><i class="fa-solid fa-envelope fa-sm"></i> hello@benjinguyen.com</span>
                         <span class="hide-mobile"> | </span>
-                        <span style="white-space: nowrap;"><i class="fa-solid fa-globe fa-sm"></i>
+                        <span class="nowrap"><i class="fa-solid fa-globe fa-sm"></i>
                             benjinguyen.com</span>
                         <br>
                         <span><a href="https://github.com/benjamonnguyen" target="_blank" style="text-decoration: none;"
                                 class="fa-brands fa-github contrast">&nbsp;</a><span class="hide-mobile"><a
                                     href="https://github.com/benjamonnguyen" target="_blank"
                                     class="contrast">github.com/benjamonnguyen</a>&nbsp;</span><span>|&nbsp;</span><span
-                                style="white-space: nowrap;"><a href="https://www.linkedin.com/in/benjamin-nguyen-004/"
+                                class="nowrap"><a href="https://www.linkedin.com/in/benjamin-nguyen-004/"
                                     target="_blank" style="text-decoration: none;"
                                     class="fa-brands fa-linkedin contrast">&nbsp;</a><a
                                     href="https://www.linkedin.com/in/benjamin-nguyen-004/" target="_blank"
@@ -38,16 +40,16 @@
                 <hr>
             </section>
 
-            <section>
+            <section class="indent-divs">
                 <h4>Experience</h4>
                 <div>
                     <div class="is-spaced-between"><b>Senior Software Engineer - Interfaces Engine Team</b>
                         <span style="text-align: right;">Jun 2023 - Present</span>
                     </div>
-                    <div>UCLA Health | Virtual Location</div>
+                    <div>UCLA Health | Remote</div>
                     <ul>
-                        <li>Created and maintained services to transform and reliably deliver <b>14 million+ HL7
-                                messages/day</b> to vendors.</li>
+                        <li>Created and maintained services to transform and deliver <b>14 million+ HL7
+                                msgs/day</b> to vendors.</li>
                         <li>Led team in identifying DevOps pain points and implementing solutions (e.g. package
                             repository, logs manager, secrets manager).</li>
                         <li>Built data compare service as part of our containerization effort to <b>automate the
@@ -56,10 +58,10 @@
                 </div>
                 <div>
                     <div class="is-spaced-between"><b>Software Engineer II - Device Manager Team</b>
-                        <span style="text-align: right;">Oct 2022 - Jun 2023</span>
+                        <span style="text-align: right;">Oct 2022 - <span class="nowrap">Jun 2023</span></span>
                     </div>
                     <div class="is-spaced-between"><b>Software Engineer I</b>
-                        <span style="text-align: right;">Oct 2021 - Oct 2022</span>
+                        <span style="text-align: right;">Oct 2021 - <span class="nowrap">Oct 2022</span></span>
                     </div>
                     <div>CalAmp | Carlsbad, CA</div>
                     <ul>
@@ -80,7 +82,7 @@
                 </div>
                 <div>
                     <div class="is-spaced-between"><b>Implementation Consultant - Data Analytics Team</b>
-                        <span style="text-align: right;">Oct 2019 - May 2021</span>
+                        <span style="text-align: right;">Oct 2019 - <span class="nowrap">May 2021</span></span>
                     </div>
                     <div>FAST Enterprises, LLC | Springfield, IL</div>
                     <ul>
@@ -93,11 +95,12 @@
                 <hr>
             </section>
 
-            <section>
+            <section class="indent-divs">
                 <h4>Projects</h4>
-                <ul class="no-bullets">
-                    <li><b>Opendoor.chat</b> | Client Management and Communications Platform
-                        <ul style="padding-inline-start: 1.5em;">
+                <div>
+                    <div><b>Opendoor.chat</b> | Client Management and Comms Platform</div>
+                    <div>
+                        <ul>
                             <li><i class="fa-brands fa-github fa-sm"></i>
                                 <a href="https://github.com/benjamonnguyen/opendoor-chat-backend" class="screen"
                                     target="_blank">Backend code</a>
@@ -112,9 +115,12 @@
                                 (WIP).
                             </li>
                         </ul>
-                    </li>
-                    <li><b>Pomomo</b> | Discord Productivity Bot
-                        <ul style="padding-inline-start: 1.5em;">
+                    </div>
+                </div>
+                <div>
+                    <div><b>Pomomo</b> | Discord Productivity Bot</div>
+                    <div>
+                        <ul>
                             <li><i class="fa-brands fa-github fa-sm"></i>
                                 <a href="https://github.com/benjamonnguyen/pomomo-rewrite" target="_blank"
                                     class="screen">Source
@@ -127,8 +133,8 @@
                                 (VoIP/messaging platform) using <b>Python, Typescript, and Vue.js</b>.
                             </li>
                         </ul>
-                    </li>
-                </ul>
+                    </div>
+                </div>
                 <hr>
             </section>
 
@@ -137,23 +143,25 @@
                 <ul class="no-bullets">
                     <li class="is-spaced-between"><span><b>UC Irvine</b> | Data Analytics and Programming
                             Bootcamp</span>
-                        <span style="text-align: right;">Feb 2019 - Aug 2019</span>
+                        <span style="text-align: right;">Feb 2019 - <span class="nowrap">Aug 2019</span></span>
                     </li>
                     <li class="is-spaced-between"><span><b>UC San Diego</b> | B.S. in Ecology and Behavioral
-                            Evolution</span><span style="text-align: right;">Sept 2014 - Dec 2018</span>
+                            Evolution</span><span style="text-align: right;">Sept 2014 - <span class="nowrap">Dec
+                                2018</span></span>
                     </li>
                 </ul>
             </section>
 
             <section>
                 <h4>Technology</h4>
-                <small>Java 11/17, Spring Boot, Kafka, Kubernetes, Docker,
-                    ActiveMQ, AWS (S3, EC2, CloudWatch, API Gateway,
-                    Lambda), PostgreSQL, noSQL (MongoDB, DocumentDB), Redis, Python, Go, JavaScript, Node.js, HTML, CSS,
-                    React, Liquibase, git, Azure, Quarkus, JUnit/Mockito, Apache Camel, Postman, Hibernate, OOP, Pub/Sub
-                    Message Queues
+                <small>Java 11/17, Spring Boot, Kafka, Kubernetes, Docker, ActiveMQ, AWS (S3, EC2, CloudWatch, API
+                    Gateway, Lambda), PostgreSQL, noSQL (MongoDB, DocumentDB), Redis, Python, Go, JavaScript, Node.js,
+                    HTML, CSS, Liquibase, git, Azure, Quarkus, JUnit/Mockito, Apache Camel, Postman, Hibernate, OOP,
+                    Pub/Sub Message Queues
                 </small>
             </section>
+
+            <button x-show="reachedBottom" id="printBtn" class="screen" onclick="window.print()">Print</button>
         </main>
         <footer style="text-align: center;">
             <small>This website is proudly served from my closet!<br>© 2024 Benjamin Nguyen</small>

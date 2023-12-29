@@ -53,6 +53,10 @@ ul li {
     font-size: 1em;
 }
 
+a>.contrast {
+    color: var(--pico-contrast);
+}
+
 .is-circle {
     aspect-ratio: 1/1;
     border-radius: 50%;

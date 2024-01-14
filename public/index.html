@@ -14,8 +14,8 @@
         <link rel="preload" as="image" href="/assets/iceland-portrait.jpeg">
     </head>
 
-    <body>
-        <header class="is-fixed-top" style="padding: 0 1em;">
+    <body class="container">
+        <header class="is-fixed-top">
             <nav>
                 <ul>
                     <li onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="interactive">
@@ -54,7 +54,7 @@
             </nav>
         </header>
 
-        <main class="container">
+        <main>
             <section class="hero" x-data="rotator" :alpine:init="autoRotate" id="hook">
                 <div id="blurb">
                     <h2>

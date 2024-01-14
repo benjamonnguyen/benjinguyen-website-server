@@ -14,8 +14,8 @@
         <link rel="preload" as="image" href="/assets/iceland-portrait.jpeg">
     </head>
 
-    <body class="container">
-        <header class="is-fixed-top">
+    <body>
+        <header class="is-fixed-top" style="padding: 0 1em;">
             <nav>
                 <ul>
                     <li onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="interactive">
@@ -24,7 +24,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="/resume" class="contrast"><b>Resume</b></a></li>
+                    <li><a href="/resume" class="contrast"><b class="nav-text">Resume</b></a></li>
                     <li>
                         <a href="https://github.com/benjamonnguyen" target="_blank" style="text-decoration: none;"
                             class="fa-brands fa-github fa-lg contrast"></a>
@@ -54,23 +54,21 @@
             </nav>
         </header>
 
-        <main>
-            <section x-data="rotator" :alpine:init="autoRotate" style="display: flex; align-items: center;"
-                class="wrap-mobile">
-                <div @click="clicked=true; nextPortrait();" style="margin-right: 2em;" class="is-column-center">
-                    <img :src="currPortrait" width="500" style="border-radius: 5%;" class="interactive" />
+        <main class="container">
+            <section class="hero" x-data="rotator" :alpine:init="autoRotate" id="hook">
+                <div id="blurb">
+                    <h2>
+                        I am a
+                        <mark @click="clicked=true; nextNoun();" x-text="currNoun" class="interactive">
+                            Software Engineer</mark><br>with a passion for
+                        <mark @click="clicked=true; nextVerb();" x-text="currVerb" class="interactive">creating</mark>.
+                    </h2>
+                    <p>Currently obsessed with Go for its simple ecosystem and toolchain.</p>
                 </div>
-                <blockquote id="blurb">
-                    I am a
-                    <mark @click="clicked=true; nextNoun();" x-text="currNoun" class="interactive">
-                        Software Engineer</mark> with a passion for
-                    <mark @click="clicked=true; nextVerb();" x-text="currVerb"
-                        class="interactive">creating</mark>.<br><br>
-                    <span style="font-size: 90%;">Currently obsessed with Go for its simple ecosystem and
-                        toolchain.</span>
-                </blockquote>
+                <div @click="clicked=true; nextPortrait();" class="image-box">
+                    <img :src="currPortrait" class="interactive img" />
+                </div>
             </section>
-            <hr>
 
             <section style="padding-top: 3em;">
                 <h4>I am working on...</h4>
@@ -185,20 +183,23 @@
                 color: var(--pico-contrast-hover);
             }
 
-            #blurb {
-                font-size: large;
-                font-weight: 600;
-                max-width: 500px;
+            #hook {
+                display: block;
             }
 
-            @media all and (min-width: 576px) {
-                img.project-logo {
-                    width: 60%;
-                }
+            #blurb {
+                margin-bottom: 2em;
+            }
 
-                #blurb {
-                    font-size: x-large;
-                }
+            #blurb * {
+                max-width: 700px;
+                text-align: center;
+                justify-self: center;
+                box-sizing: border-box;
+            }
+
+            #blurb p {
+                font-size: large;
             }
 
             @media screen and (min-width: 768px) {
@@ -212,8 +213,26 @@
                     width: 50%;
                 }
 
-                #blurb {
-                    max-width: 575px;
+                #hook {
+                    grid-template-columns: 5fr 4fr;
+                    display: grid;
+                    justify-content: center;
+                }
+
+                #blurb * {
+                    width: fit-content;
+                    text-align: left;
+                    justify-self: unset;
+                }
+            }
+
+            @media screen and (min-width: 1280px) {
+                #blurb p {
+                    font-size: x-large;
+                }
+
+                #hook {
+                    grid-template-columns: 4fr 3fr;
                 }
             }
         </style>

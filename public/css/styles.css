@@ -67,23 +67,55 @@ a>.contrast {
     display: none;
 }
 
-.wrap-mobile {
-    flex-wrap: wrap;
-}
-
 img.project-logo {
     width: 70%;
     height: auto;
     padding: 1em 0;
 }
 
-@media all and (min-width: 576px) {
+.image-box {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    max-width: 400px;
+    border-radius: 5%;
+}
+
+.image-box img {
+    transition: all 0.3s;
+    display: block;
+    height: auto;
+    transform: scale(1);
+}
+
+.image-box:hover img {
+    transform: scale(1.3);
+}
+
+:root {
+    --pico-mark-gradient: linear-gradient(to right, transparent, rgba(61, 71, 92, .125)), linear-gradient(to right, #FF9E5A, #FF5E72, #002C9C, #19547B);
+    --pico-font-size: 100%;
+}
+
+.mobile {
+    display: none;
+}
+
+@media screen and (min-width: 576px) {
+    .mobile {
+        display: block;
+    }
+
     img.project-logo {
         width: 60%;
     }
+
+    :root {
+        --pico-font-size: 110%:
+    }
 }
 
-@media all and (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .hide-mobile {
         display: inline;
     }
@@ -91,15 +123,37 @@ img.project-logo {
     img.project-logo {
         width: 50%;
     }
+
+    :root {
+        --pico-font-size: 120%:
+    }
 }
 
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
     img.project-logo {
         width: 40%;
     }
 
-    .wrap-mobile {
-        flex-wrap: nowrap;
+    :root {
+        --pico-font-size: 140%:
+    }
+
+    .image-box {
+        max-width: 500px;
+    }
+
+    .fa-lg {
+        font-size: 1.4em;
+    }
+
+    .nav-text {
+        font-size: large;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    h2 {
+        font-size: 2.5rem;
     }
 }
 
@@ -118,4 +172,14 @@ img.project-logo {
     .print {
         display: inline;
     }
+}
+
+mark {
+    padding: 0;
+    background: var(--pico-mark-gradient);
+    background-size: 100%, 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: background-position-x 36s linear infinite;
 }

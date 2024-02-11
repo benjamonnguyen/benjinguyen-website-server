@@ -63,10 +63,6 @@ a>.contrast {
     object-position: center;
 }
 
-.hide-mobile {
-    display: none;
-}
-
 img.project-logo {
     width: 70%;
     height: auto;
@@ -99,6 +95,12 @@ img.project-logo {
 
 .mobile {
     display: none;
+}
+
+@media screen {
+    .hide-mobile {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 576px) {

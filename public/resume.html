@@ -15,7 +15,7 @@
     <body class="container" x-data="{ reachedBottom: false }"
         @scroll.document="if (window.innerHeight + window.pageYOffset + 500 >= document.body.offsetHeight) reachedBottom = true">
         <main>
-            <section>
+            <section style="margin: 2em 0 1em;">
                 <div class="is-spaced-between" style="align-items: center;">
                     <span class="contrast print" id="name-header" style="text-decoration: none;">Benjamin Nguyen</span>
                     <a href="/" class="screen">
@@ -49,12 +49,13 @@
                     </div>
                     <div>UCLA Health&nbsp;&nbsp;|&nbsp;&nbsp;Interfaces Engine Team&nbsp;&nbsp;|&nbsp;&nbsp;Remote</div>
                     <ul>
-                        <li>Create and maintain services to transform and deliver <b>14 million+ HL7
-                                msgs/day</b> to vendors.</li>
-                        <li>Lead team in identifying DevOps pain points and implementing solutions (e.g. package
-                            repository, logs manager, secrets manager).</li>
-                        <li>Built data compare service as part of our containerization effort to <b>automate the
-                                verification of the converted data output for 200+ services</b>.</li>
+                        <li>Developed services to transform and deliver <b>14 million+ HL7 msgs/day</b> to vendors,
+                            enabling real-time monitoring of hospital patient health.</li>
+                        <li>Built observability dashboard to monitor queue depths and respond to service failures,
+                            reducing average on-call resolution time from 30m to 10m.</li>
+                        <li>Built data compare service as part of our containerization and K8 migration effort to
+                            <b>automate the verification of the converted data output for 200+ services</b>.
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -66,30 +67,28 @@
                     </div>
                     <div>CalAmp&nbsp;&nbsp;|&nbsp;&nbsp;Device Manager Team&nbsp;&nbsp;|&nbsp;&nbsp;Carlsbad, CA</div>
                     <ul>
-                        <li>Contributed to team's event-driven, distributed backend system that manages device state and
+                        <li>Built Java and Go microservices for team's event-driven,
+                            distributed backend system that manages device state and
                             assigns files/configurations for <b>10 million+ devices</b>.</li>
-                        <li>Built <b>Java and Go microservices</b> to persist and synchronize incoming device state
-                            across other teams’ caches.
-                            <ul style="padding-inline-start: 1em;">
-                                <li>Responsibilities: communicate change events, inform notification service, and stream
-                                    data to the data analytics team.</li>
-                                <li>Design: pull-based, asynchronous message routing using <b>Kafka</b> offloaded bulk
-                                    of
-                                    routing logic to consumers and <b>increased system throughput from 4k to 30k
-                                        messages/min</b>.</li>
-                            </ul>
+                        <li>Designed and implemented service to persist and synchronize incoming device state
+                            across other teams’ caches by streaming change events and informing notification service.
+                            Pub/sub-based, asynchronous message routing using Kafka offloaded bulk of routing logic to
+                            consumers and <b>increased system throughput from 4k to 30k msgs/min</b>.
                         </li>
+                    </ul>
+                    </li>
                     </ul>
                 </div>
                 <div>
-                    <div class="is-spaced-between"><b>Implementation Consultant</b>
+                    <div class="is-spaced-between"><b>Software Engineer</b>
                         <span style="text-align: right;">Oct 2019 - <span class="nowrap">May 2021</span></span>
                     </div>
-                    <div>FAST Enterprises, LLC&nbsp;&nbsp;|&nbsp;&nbsp;Data Analytics
+                    <div>FAST Enterprises&nbsp;&nbsp;|&nbsp;&nbsp;Data Analytics
                         Team&nbsp;&nbsp;|&nbsp;&nbsp;Springfield, IL</div>
                     <ul>
-                        <li>Contributed to team's Sales Tax Audit Selection program which generated <b>$2.5 million
-                                year-over-year ($2,825/audit hour)</b>.</li>
+                        <li>Trained Sales Tax Audit Selection model, which suggested leads that generated
+                            <b>$2,825/audit hour ($2.5 million total)</b>.
+                        </li>
                         <li>Developed Current Residence Prediction program to automate the resending of undeliverable
                             notices of tax due, <b>clearing a backlog of 13,600+</b>.</li>
                     </ul>
@@ -100,7 +99,10 @@
             <section class="indent-divs">
                 <h4>Projects</h4>
                 <div>
-                    <div><b>Opendoor.chat</b> | Client Management and Comms Platform</div>
+                    <div class="is-spaced-between"><span><b>Opendoor.chat</b> | Client Management and Comms
+                            Platform</span>
+                        <span style="text-align: right;">Nov 2023 - <span class="nowrap">Present</span></span>
+                    </div>
                     <div>
                         <ul>
                             <li><i class="fa-brands fa-github fa-sm"></i>
@@ -111,13 +113,15 @@
                             <li>
                                 Developing chat web app that seamlessly replaces email correspondence for a better
                                 communication experience between vendors and their clients using
-                                <b>Go, HTMX, and Alpine.js</b> (WIP).
+                                Go, HTMX, and Alpine.js.
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div>
-                    <div><b>Pomomo</b> | Discord Productivity Bot</div>
+                    <div class="is-spaced-between"><span><b>Pomomo</b> | Discord Productivity Bot</span>
+                        <span style="text-align: right;">Mar 2021 - <span class="nowrap">Oct 2022</span></span>
+                    </div>
                     <div>
                         <ul>
                             <li><i class="fa-brands fa-github fa-sm"></i>
@@ -128,8 +132,9 @@
                                     class="screen">Website</a><span class="print">https://pomomo.us</span>
                             </li>
                             <li>
-                                Developed a bot that facilitates group study sessions in <b>25k+ servers</b> on Discord
-                                (VoIP/messaging platform) using <b>Python, Typescript, and Vue.js</b>.
+                                Developed a bot that facilitates group study sessions on Discord
+                                (VoIP/messaging platform) using Python, Typescript, and Vue.js.
+                                Presently used in <b>25k+ servers</b>.
                             </li>
                         </ul>
                     </div>
@@ -154,9 +159,9 @@
             <section>
                 <h4>Technology</h4>
                 <small>Java 11/17, Spring Boot, Kafka, Kubernetes, Docker, ActiveMQ, AWS (S3, EC2, CloudWatch, API
-                    Gateway, Lambda), PostgreSQL, noSQL (MongoDB, DocumentDB), Redis, Python, Go, JavaScript, Node.js,
-                    HTML, CSS, Liquibase, git, Azure, Quarkus, JUnit/Mockito, Apache Camel, Postman, Hibernate, OOP,
-                    Pub/Sub Message Queues
+                    Gateway, Lambda), PostgreSQL, noSQL (MongoDB, DocumentDB), Redis, Python, Golang, JavaScript,
+                    Node.js, HTML, CSS, Liquibase, git, Azure, Quarkus, JUnit/Mockito, Apache Camel, Postman, Hibernate,
+                    OOP, Pub/Sub Message Queues, Splunk, Datadog, C#, VB.NET, AGILE, RESTful Web Services
                 </small>
             </section>
 
@@ -187,7 +192,7 @@
             h2,
             h3,
             h4 {
-                margin-bottom: 0;
+                margin-bottom: 0.2em;
             }
         }
 

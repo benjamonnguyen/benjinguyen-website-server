@@ -1,7 +1,9 @@
-version: '2.23.3'
+version: '3.9'
 
 services:
   benjinguyen-website-server:
     image: benjinguyen-website-server:latest
     ports:
     - "3000:3000"
+    volumes:
+    - ./public:/public

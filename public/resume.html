@@ -12,7 +12,7 @@
     </head>
 
     <body class="container" x-data="{ reachedBottom: false }"
-        @scroll.document="if (window.innerHeight + window.pageYOffset + 500 >= document.body.offsetHeight) reachedBottom = true">
+        @scroll.document="if (window.innerHeight + window.pageYOffset + 100 >= document.body.offsetHeight) reachedBottom = true">
         <main>
             <section style="margin: 2em 0 1em;">
                 <div class="is-spaced-between" style="align-items: center;">
@@ -166,14 +166,9 @@
                 </small>
             </section>
 
-            <!-- <button x-show="reachedBottom" id="printBtn" class="screen" onclick="window.print()">Print</button> -->
+            <a href="/assets/benji_nguyen_resume.pdf" x-show="reachedBottom" id="downloadBtn" type="button"
+                class="screen" download>Download</a>
         </main>
-        <footer style="text-align: center;">
-            <small>
-                Assets created by Benny Nguyen.<br>This website is proudly served from my closet!<br>
-                © 2024 Benjamin Nguyen
-            </small>
-        </footer>
     </body>
 
     <style>
@@ -214,10 +209,10 @@
             }
         }
 
-        #printBtn {
-            z-index: 2;
+        #downloadBtn {
+            z-index: 100;
             position: sticky;
-            bottom: 2em;
+            bottom: 5em;
             float: right;
             padding: 0.5em 2em;
             font-weight: bold;
